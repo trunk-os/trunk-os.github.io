@@ -1,0 +1,37 @@
+---
+const benefits = [
+  {
+    title: "Your Data, Your Control",
+    description: "Keep your files, photos, and documents on your own hardware. No more worrying about privacy policies or data breaches."
+  },
+  {
+    title: "No Monthly Fees",
+    description: "One-time setup, lifetime savings. Stop paying for cloud storage when you can host it yourself."
+  },
+  {
+    title: "Simple Enough for Everyone",
+    description: "Designed for non-technical users. If you can use a USB drive, you can run Trunk OS."
+  },
+  {
+    title: "Powerful When You Need It",
+    description: "Advanced features like containers, VMs, and federation are there when you're ready."
+  }
+];
+---
+
+<section id="benefits" class="py-20 bg-white dark:bg-gray-800">
+  <div class="container-responsive">
+    <h2 class="text-4xl font-bold text-center mb-16 animate-fade-up">
+      Why Choose Trunk OS?
+    </h2>
+    
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {benefits.map((benefit, index) => (
+        <div class={`p-8 rounded-xl border-2 border-gray-100 dark:border-gray-600 hover:border-trunk-primary transition-all animate-fade-up animate-delay-${index * 200}`}>
+          <h3 class="text-2xl font-semibold mb-4 text-trunk-secondary dark:text-white">{benefit.title}</h3>
+          <p class="text-trunk-dark/70 dark:text-gray-300">{benefit.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

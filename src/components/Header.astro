@@ -1,0 +1,38 @@
+---
+---
+
+<header class="fixed top-0 w-full z-50 glass-effect">
+  <nav class="container-responsive py-4">
+    <div class="flex items-center justify-between">
+      <a href="/" class="flex items-center space-x-2">
+        <img src="/trunk.png" alt="Trunk OS" class="h-10 w-10" />
+        <span class="font-bold text-xl text-trunk-secondary dark:text-white">Trunk OS</span>
+      </a>
+      
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#features" class="text-trunk-dark dark:text-gray-300 hover:text-trunk-primary transition-colors">Features</a>
+        <a href="#how-it-works" class="text-trunk-dark dark:text-gray-300 hover:text-trunk-primary transition-colors">How It Works</a>
+        <a href="#benefits" class="text-trunk-dark dark:text-gray-300 hover:text-trunk-primary transition-colors">Benefits</a>
+        <a href="https://github.com/trunk-os" target="_blank" rel="noopener noreferrer" 
+           class="text-trunk-dark dark:text-gray-300 hover:text-trunk-primary transition-colors">GitHub</a>
+        <a href="#community"
+           class="bg-trunk-primary text-white px-4 py-2 rounded-lg hover:bg-trunk-primary/90 transition-colors">
+          Join Community
+        </a>
+      </div>
+      
+      <button class="md:hidden text-trunk-dark dark:text-gray-300" id="mobile-menu-toggle">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  toggle?.addEventListener('click', () => {
+    // Mobile menu logic would go here
+  });
+</script>

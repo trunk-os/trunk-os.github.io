@@ -1,0 +1,41 @@
+---
+const steps = [
+  {
+    number: "1",
+    title: "Plug in a USB",
+    description: "Download Trunk OS to a USB drive and plug it into any computer"
+  },
+  {
+    number: "2",
+    title: "Power On",
+    description: "Boot from the USB and Trunk automatically configures your storage and network"
+  },
+  {
+    number: "3",
+    title: "Start Using",
+    description: "Access your personal cloud through the web interface or connect your apps"
+  }
+];
+---
+
+<section id="how-it-works" class="py-20 bg-gray-50 dark:bg-gray-900">
+  <div class="container-responsive">
+    <h2 class="text-4xl font-bold text-center mb-16 animate-fade-up">
+      As Easy as 1-2-3
+    </h2>
+    
+    <div class="max-w-4xl mx-auto">
+      {steps.map((step, index) => (
+        <div class={`flex items-start mb-12 animate-slide-in animate-delay-${index * 200}`}>
+          <div class="flex-shrink-0 w-16 h-16 bg-trunk-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mr-6">
+            {step.number}
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-2 text-trunk-secondary dark:text-white">{step.title}</h3>
+            <p class="text-lg text-trunk-dark/70 dark:text-gray-300">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

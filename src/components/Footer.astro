@@ -1,0 +1,36 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-trunk-secondary dark:bg-gray-900 text-white py-12">
+  <div class="container-responsive">
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <h3 class="font-bold text-lg mb-4">Trunk OS</h3>
+        <p class="text-gray-300 dark:text-gray-400">Your personal cloud solution. Simple, powerful, and completely under your control.</p>
+      </div>
+      
+      <div>
+        <h3 class="font-bold text-lg mb-4">Resources</h3>
+        <ul class="space-y-2 text-gray-300 dark:text-gray-400">
+          <li><a href="https://github.com/trunk-os" class="hover:text-white transition-colors">GitHub</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Community Forum</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="font-bold text-lg mb-4">Connect</h3>
+        <ul class="space-y-2 text-gray-300 dark:text-gray-400">
+          <li><a href="https://bsky.app/profile/trunk-os.bsky.social" class="hover:text-white transition-colors">Bluesky</a></li>
+          <li><a href="https://discord.gg/ZyV9DPrcpF" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Discord</a></li>
+          <li><a href="mailto:contact@trunk-os.org" class="hover:text-white transition-colors">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-600 dark:border-gray-700 pt-8 text-center text-gray-300 dark:text-gray-400">
+      <p>&copy; {currentYear} Trunk OS. Open source and proud of it.</p>
+    </div>
+  </div>
+</footer>
