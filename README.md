@@ -46,7 +46,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📧 Contact
 
-- Website: [trunk-os.org](https://trunk-os.org)
 - GitHub: [@trunk-os](https://github.com/trunk-os)
 - Discord: [Trunk OS](https://discord.gg/ZyV9DPrcpF)
 - Bluesky: [@trunk-os.bsky.social](https://bsky.app/profile/trunk-os.bsky.social)
