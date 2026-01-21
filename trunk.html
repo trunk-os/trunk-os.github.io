@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trunk - Your Cloud in a Closet</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #0a0a0a;
+        color: #ffffff;
+        overflow: hidden;
+      }
+
+      .presentation {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+      }
+
+      .slide {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 80px;
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out;
+        pointer-events: none;
+      }
+
+      .slide.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* High contrast colors optimized for projectors */
+      .slide h1 {
+        font-size: 5rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: center;
+        line-height: 1.2;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      }
+
+      .slide h2 {
+        font-size: 3.5rem;
+        font-weight: 600;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #4a9eff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      }
+
+      .slide p,
+      .slide li {
+        font-size: 2.2rem;
+        line-height: 1.6;
+        max-width: 1400px;
+        text-align: center;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+      }
+
+      .slide ul {
+        list-style: none;
+        max-width: 1400px;
+      }
+
+      .slide li {
+        margin-bottom: 30px;
+        padding-left: 60px;
+        position: relative;
+        text-align: left;
+      }
+
+      .slide li:before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #4a9eff;
+        font-size: 2.5rem;
+      }
+
+      /* Title slide */
+      #slide1 {
+        background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+      }
+
+      #slide1 h1 {
+        font-size: 6rem;
+        color: #4a9eff;
+        margin-bottom: 20px;
+      }
+
+      #slide1 .tagline {
+        font-size: 3rem;
+        color: #ffffff;
+        font-weight: 300;
+      }
+
+      /* Problem slide */
+      #slide2 {
+        background: linear-gradient(135deg, #2d1b4e 0%, #1a0933 100%);
+      }
+
+      /* Solution slide */
+      #slide3 {
+        background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+      }
+
+      /* Features slide */
+      #slide4 {
+        background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+      }
+
+      #slide4 ul {
+        width: 100%;
+      }
+
+      /* Editable frame slides */
+      #slide5,
+      #slide6,
+      #slide7 {
+        background: linear-gradient(135deg, #1a4d2e 0%, #0d2818 100%);
+      }
+
+      #slide6 {
+        background: linear-gradient(135deg, #4a1c40 0%, #2d0a26 100%);
+      }
+
+      #slide7 {
+        background: linear-gradient(135deg, #1c3a4a 0%, #0a1d2d 100%);
+      }
+
+      /* Call to action */
+      #slide8 {
+        background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+      }
+
+      .cta-box {
+        background: rgba(74, 158, 255, 0.15);
+        border: 3px solid #4a9eff;
+        padding: 50px 80px;
+        border-radius: 20px;
+        margin: 30px 0;
+      }
+
+      .cta-box p {
+        font-size: 2.5rem;
+        color: #4a9eff;
+        font-weight: 600;
+      }
+
+      /* Navigation */
+      .nav-hint {
+        position: absolute;
+        bottom: 30px;
+        right: 40px;
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+      }
+
+      .slide-counter {
+        position: absolute;
+        bottom: 30px;
+        left: 40px;
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.5);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+      }
+
+      /* Editable content highlight */
+      .editable {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px dashed rgba(255, 255, 255, 0.3);
+        padding: 40px;
+        border-radius: 15px;
+        min-height: 300px;
+        width: 100%;
+        max-width: 1400px;
+      }
+
+      .editable-label {
+        color: #4a9eff;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="presentation">
+      <!-- Slide 1: Title -->
+      <div class="slide active" id="slide1">
+        <h1>Trunk</h1>
+        <p class="tagline">Your Cloud in a Closet</p>
+      </div>
+
+      <!-- Slide 2: The Problem -->
+      <div class="slide" id="slide2">
+        <h2>The Problem</h2>
+        <p>Big tech controls your data.</p>
+        <p>Privacy is compromised. Surveillance is constant.</p>
+        <p>You pay monthly fees to rent access to your own files.</p>
+      </div>
+
+      <!-- Slide 3: The Solution -->
+      <div class="slide" id="slide3">
+        <h2>The Solution</h2>
+        <h1>Trunk</h1>
+        <p>Take back control of your digital life</p>
+        <p>Open source • Privacy-first • Self-hosted</p>
+      </div>
+
+      <!-- Slide 4: Key Features -->
+      <div class="slide" id="slide4">
+        <h2>Powerful Features</h2>
+        <ul>
+          <li>Automated USB install on any old hardware</li>
+          <li>Smart packaging system with interactive setup</li>
+          <li>Automatic uPnP port forwarding</li>
+          <li>Lets you run your own iCloud at home</li>
+          <li>Privacy-first design - your data stays local</li>
+        </ul>
+      </div>
+
+      <!-- Slide 5: EDITABLE FRAME -->
+      <div class="slide" id="slide5">
+        <h2>Current State</h2>
+        <div class="editable">
+          <p class="editable-label">Functional but not Ready</p>
+          <p>VirtualBox and USB images exist, but aren't very useful yet</p>
+          <p>Most hosting features function as expected</p>
+          <p>Object storage and integration with it are the current focus</p>
+        </div>
+      </div>
+
+      <!-- Slide 6: EDITABLE FRAME -->
+      <div class="slide" id="slide6">
+        <h2>Direction and Governance</h2>
+        <div class="editable">
+          <p class="editable-label">In-Progress</p>
+          <p>Governance discussions are focused around community trust</p>
+          <p>Holding copyright, IP until release - then MPL2</p>
+          <p>Legal attempt to avoid co-opting by incentivized companies</p>
+        </div>
+      </div>
+
+      <!-- Slide 7: EDITABLE FRAME -->
+      <div class="slide" id="slide7">
+        <h2>Help me</h2>
+        <div class="editable">
+          <p class="editable-label">No software is an island</p>
+          <p>Constant effort since May</p>
+          <p>Packages, Testing, Pull Requests</p>
+          <p>Fiscal support is necessary</p>
+        </div>
+      </div>
+
+      <!-- Slide 8: Call to Action -->
+      <div class="slide" id="slide8">
+        <h2>Get Started Today</h2>
+        <div class="cta-box">
+          <p>Community Pages</p>
+          <p style="font-size: 2rem; margin-top: 20px">
+            github.com/trunk-os/community
+          </p>
+        </div>
+        <p style="margin-top: 50px; font-size: 2rem">
+          A home computer should be an appliance; just like your washing machine.
+        </p>
+      </div>
+
+      <div class="slide-counter"><span id="current">1</span> / 8</div>
+      <div class="nav-hint">Use ← → arrow keys or click to navigate</div>
+    </div>
+
+    <script>
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slide");
+      const totalSlides = slides.length;
+
+      function showSlide(n) {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (n + totalSlides) % totalSlides;
+        slides[currentSlide].classList.add("active");
+        document.getElementById("current").textContent = currentSlide + 1;
+      }
+
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+
+      function prevSlide() {
+        showSlide(currentSlide - 1);
+      }
+
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === " " || e.key === "Enter") {
+          nextSlide();
+        } else if (e.key === "ArrowLeft") {
+          prevSlide();
+        } else if (e.key === "Home") {
+          showSlide(0);
+        } else if (e.key === "End") {
+          showSlide(totalSlides - 1);
+        }
+      });
+
+      // Click navigation
+      document.addEventListener("click", (e) => {
+        if (e.clientX > window.innerWidth / 2) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      });
+
+      // Touch support for mobile
+      let touchStartX = 0;
+      document.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+      });
+
+      document.addEventListener("touchend", (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        if (touchStartX - touchEndX > 50) {
+          nextSlide();
+        } else if (touchEndX - touchStartX > 50) {
+          prevSlide();
+        }
+      });
+    </script>
+  </body>
+</html>
